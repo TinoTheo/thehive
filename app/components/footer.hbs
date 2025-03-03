@@ -1,0 +1,65 @@
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="hexagon"></span>
+          <h3>The Hive</h3>
+        </div>
+        <p class="footer-tagline">Where Medical Excellence Meets Compassionate Care</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            {{#each this.quickLinks as |link|}}
+              <li><a href="{{link.url}}" class="footer-link">{{link.label}}</a></li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Services</h4>
+          <ul class="footer-links">
+            {{#each this.services as |service|}}
+              <li><a href="{{service.url}}" class="footer-link">{{service.name}}</a></li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Us</h4>
+          <div class="contact-info">
+            <p><FaIcon @icon="map-marker-alt" /> 123 Medical Drive<br>Health City, HC 45678</p>
+            <p><FaIcon @icon="phone" /> <a href="tel:+1234567890">(123) 456-7890</a></p>
+            <p><FaIcon @icon="envelope" /> <a href="mailto:care@thehive.com">care@thehive.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-certifications">
+      <div class="certification-logos">
+        <img src="/assets/images/ama-certified.png" alt="American Medical Association Certified">
+        <img src="/assets/images/hipaa-compliant.png" alt="HIPAA Compliant">
+        <img src="/assets/images/jcaho-accredited.png" alt="JCAHO Accredited">
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="copyright">&copy; {{this.currentYear}} The Hive Medical Group. All rights reserved.</div>
+      <div class="legal-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/accessibility">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>

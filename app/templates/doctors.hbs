@@ -1,0 +1,64 @@
+{{! app/templates/doctors.hbs }}
+<section class="doctors-page">
+  {{! Page Header Section }}
+  <div class="doctors-header">
+    <h1 class="section-title">Meet Our Medical Experts</h1>
+    <p class="section-subtitle">Board-Certified Specialists Committed to Your Care</p>
+    <div class="specialty-filter">
+      <button type="button" class="filter-button active">All Specialties</button>
+      {{#each this.specialties as |specialty|}}
+        <button 
+          type="button" 
+          class="filter-button"
+          {{on "click" (fn this.filterBySpecialty specialty)}}
+        >
+          {{specialty}}
+        </button>
+      {{/each}}
+    </div>
+  </div>
+
+  {{! Doctors Grid }}
+  <div class="doctors-grid">
+    {{#each this.filteredDoctors as |doctor|}}
+      <div class="doctor-card">
+        <div class="card-image">
+          <img src={{doctor.image}} alt="Portrait of {{doctor.name}}" />
+          <div class="image-overlay">
+            <div class="overlay-content">
+              <button class="profile-button" type="button">
+                View Full Profile
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="social-links">
+                <a href="#" aria-label="LinkedIn profile">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" aria-label="Research publications">
+                  <i class="fas fa-book-medical"></i>
+                </a>
+                <a href="#" aria-label="Contact doctor">
+                  <i class="fas fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="doctor-name">{{doctor.name}}</h3>
+          <p class="doctor-specialty">{{doctor.specialty}}</p>
+          <div class="doctor-meta">
+            <span class="experience">
+              <i class="fas fa-certificate"></i>
+              {{doctor.experience}}+ years experience
+            </span>
+            <span class="education">
+              <i class="fas fa-university"></i>
+              {{doctor.education}}
+            </span>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>

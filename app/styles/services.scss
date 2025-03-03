@@ -1,0 +1,362 @@
+
+
+// Use existing variables from navigation + new ones
+$primary-color: #2a4365; // Dark blue
+$accent-color: #e53e3e; // Red
+$text-color: #2d3748;
+$hover-color: #4299e1; // Light blue
+$hero-bg: #f7fafc;
+$highlight-color: #2b6cb0;
+$stat-color: #2a4365;
+$mobile-breakpoint: 768px;
+
+// app/styles/services.scss
+
+// Design Constants
+$header-min-height: 720px;
+$overlay-opacity: 0.92;
+$title-underline-width: 120px;
+
+.services-header {
+  position: relative;
+  min-height: $header-min-height;
+  overflow: hidden;
+  isolation: isolate;
+
+  .header-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    .geometric-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        rgba($accent-color, 0.05),
+        rgba($accent-color, 0.05) 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      z-index: 2;
+    }
+
+    .image-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          89deg,
+          $primary-color 15%,
+          rgba($primary-color, $overlay-opacity) 100%
+        );
+      }
+    }
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+  }
+
+  .trust-indicators {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    .trust-badge {
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      background: rgba(white, 0.12);
+      backdrop-filter: blur(8px);
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .header-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin: 0 auto 2rem;
+    max-width: 900px;
+
+    .title-text {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 1rem;
+    }
+
+    .title-underline {
+      display: block;
+      width: $title-underline-width;
+      height: 4px;
+      background: $accent-color;
+      margin: 1.5rem auto 0;
+      transform-origin: left;
+      animation: underline-expand 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  .header-subtitle {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto 3rem;
+    opacity: 0.92;
+    font-weight: 300;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2.5rem;
+    border-radius: 2rem;
+    background: $accent-color;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      .cta-icon {
+        transform: translateX(3px);
+      }
+    }
+  }
+
+  .cta-secondary {
+    @extend .cta-primary;
+    background: rgba(white, 0.15);
+    border: 2px solid rgba(white, 0.3);
+    
+    &:hover {
+      background: rgba(white, 0.25);
+    }
+  }
+
+  .cta-icon {
+    transition: transform 0.3s ease;
+  }
+}
+
+@keyframes underline-expand {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+.services-overview {
+    padding: 6rem 2rem;
+    background: linear-gradient(to bottom, #f7fafc, white);
+  }
+  
+  .services-intro {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  
+    .intro-heading {
+      font-size: 2.2rem;
+      color: $primary-color;
+      margin-bottom: 1.5rem;
+    }
+  
+    .intro-text {
+      font-size: 1.1rem;
+      color: $text-color;
+      line-height: 1.8;
+    }
+  }
+  
+  // Services Grid
+  .services-grid {
+    display: grid;
+    gap: 2rem;
+  
+    @media (min-width: $mobile-breakpoint) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+  
+  // Service Card
+  .service-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid #e2e8f0;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+    }
+  }
+  
+  .card-header {
+    padding: 2rem;
+    background: $primary-color;
+    color: white;
+    text-align: center;
+  
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: $accent-color;
+    }
+  
+    .card-title {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+  }
+  
+  .card-body {
+    padding: 2rem;
+  
+    .card-description {
+      color: $text-color;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  .card-features {
+    .features-heading {
+      color: $primary-color;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+  
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      color: $text-color;
+  
+      .feature-icon {
+        color: $accent-color;
+        font-size: 0.9rem;
+      }
+    }
+  }
+  
+  .card-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+  
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: $accent-color;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+  
+      .cta-icon {
+        transition: transform 0.3s ease;
+      }
+  
+      &:hover {
+        color: darken($accent-color, 10%);
+  
+        .cta-icon {
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+  
+  // Service CTA Section
+  .service-cta {
+    background: $primary-color;
+    color: white;
+    padding: 6rem 2rem;
+    text-align: center;
+  
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .cta-heading {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .cta-text {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+  
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+  
+      &.primary {
+        background: $accent-color;
+        color: white;
+  
+        &:hover {
+          background:$accent-color;
+        }
+      }
+  
+      &.secondary {
+        background: white;
+        color: $primary-color;
+  
+        &:hover {
+          background:white;
+        }
+      }
+    }
+  }

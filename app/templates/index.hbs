@@ -1,0 +1,104 @@
+
+<main class="hero-section">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-headline">
+          <span class="highlight">Advanced Care</span> 
+          Where Compassion Meets Innovation
+        </h1>
+        <p class="hero-subhead">
+          Trusted by over 500,000 patients across the nation. 
+          Same-day appointments available with our expert medical team.
+        </p>
+        <div class="hero-cta">
+          <LinkTo @route="contact" class="primary-cta">
+            Schedule Your Visit
+            <i class="fas fa-calendar-check cta-icon"></i>
+          </LinkTo>
+          <a href="#" class="secondary-cta">
+            Meet Our Specialists
+            <i class="fas fa-user-md cta-icon"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="hex-grid">
+          {{! Add your medical illustration/image here }}
+          <img src="/assets/images/doctor-team.jpg" alt="The Hive medical team" class="hero-main-image" />
+          <div class="hex-overlay"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Expert Physicians</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Emergency Care</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Patient Satisfaction</div>
+      </div>
+    </div>
+  </div>
+  <section class="services-section">
+  <div class="section-container">
+<SectionHeader 
+  @title="Our Specialized Care" 
+  @subtitle="Comprehensive Medical Solutions"
+/>
+    
+    <div class="services-grid">
+      {{#each this.services as |service|}}
+        <div class="service-card">
+          <div class="card-icon">
+            <FaIcon @icon={{service.icon}} />
+          </div>
+          <h3 class="card-title">{{service.title}}</h3>
+          <p class="card-description">{{service.description}}</p>
+          <a href="#" class="card-cta">
+            Learn More
+            <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+<section class="team-section">
+  <div class="section-container">
+   <SectionHeader 
+  @title="Meet Our Specialists" 
+  @subtitle="Board-Certified Professionals"
+  @inverted={{true}}
+/>
+    
+    <div class="team-grid">
+      {{#each this.doctors as |doctor|}}
+        <div class="doctor-card">
+          <div class="doctor-image">
+            <img src={{doctor.image}} alt={{doctor.name}} />
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>{{doctor.name}}</h4>
+                <p>{{doctor.specialty}}</p>
+                <div class="social-links">
+                  <a href="#"><FaIcon @icon="linkedin" /><i class="fa-brands fa-linkedin"></i> </a>
+                  <a href="#"><FaIcon @icon="file-certificate" /> <i class="fa-solid fa-file"></i></a>
+                  <a href="#"><FaIcon @icon="comment-medical" /><i class="fa-solid fa-comment-medical"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+</main>

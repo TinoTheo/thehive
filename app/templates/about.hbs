@@ -1,0 +1,67 @@
+{{! app/templates/about.hbs }}
+<section class="about-page">
+  {{! Hero Section }}
+  <div class="about-hero">
+    <div class="about-hero-content">
+      <h1 class="hero-title">Redefining Healthcare Excellence</h1>
+      <p class="hero-subtitle">Compassionate Care, Innovative Solutions, Trusted Expertise</p>
+    </div>
+  </div>
+
+  {{! Mission Section }}
+  <div class="mission-section">
+    <div class="mission-content">
+      <h2 class="section-heading">Our Commitment to You</h2>
+      <p class="mission-statement">{{this.missionStatement}}</p>
+      <div class="core-values">
+        {{#each this.values as |value|}}
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas {{value.icon}}"></i>
+            </div>
+            <h3 class="value-title">{{value.title}}</h3>
+            <p class="value-description">{{value.description}}</p>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  {{! Leadership Grid }}
+  <div class="leadership-section">
+    <h2 class="section-heading">Visionary Leadership</h2>
+    <div class="leadership-grid">
+      {{#each this.leaders as |leader|}}
+        <div class="leader-card">
+          <div class="leader-image">
+            <img src={{leader.image}} alt="Portrait of {{leader.name}}" />
+            <div class="image-overlay">
+              <div class="overlay-content">
+                <div class="leader-meta">
+                  <p class="leader-quote">"{{leader.quote}}"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">{{leader.name}}</h3>
+            <p class="leader-role">{{leader.role}}</p>
+            <div class="leader-bio">{{leader.bio}}</div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  {{! Stats Section }}
+  <div class="stats-section">
+    <div class="stats-container">
+      {{#each this.stats as |stat|}}
+        <div class="stat-item">
+          <div class="stat-value">{{stat.value}}+</div>
+          <div class="stat-label">{{stat.label}}</div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+{{! app/components/page-header.hbs }}
+<section class="page-header" style={{this.backgroundStyle}}>
+<section class="page-header" style={{background-image-url @backgroundImage}}>
+  {{! Layer 1: Geometric Elements }}
+  <div class="geometric-pattern">
+    <div class="hexagon-pattern"></div>
+    <div class="pulse-dots"></div>
+  </div>
+
+  {{! Layer 2: Content Container }}
+  <div class="header-container">
+    <div class="header-metadata">
+      <span class="accreditation-badge">JCAHO Accredited</span>
+      <span class="experience-badge">20+ Years Serving Patients</span>
+    </div>
+    
+    <h1 class="header-title">
+      <span class="title-text">{{@title}}</span>
+      <span class="title-underline"></span>
+    </h1>
+    
+    <p class="header-subtitle">{{@subtitle}}</p>
+    
+    <div class="header-actions">
+      <LinkTo @route="contact" class="primary-cta">
+        Schedule Consultation
+        <span class="cta-chevron"></span>
+      </LinkTo>
+      <LinkTo @route="doctors" class="secondary-cta">
+        Meet Our Specialists
+      </LinkTo>
+    </div>
+  </div>
+</section>
+
+</section>

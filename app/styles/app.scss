@@ -1,0 +1,14 @@
+/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+@use 'navbar';
+@use 'index';
+@use 'section-header';
+@use 'footer';
+@use 'services';
+@use 'doctors';
+@use  'about';
+@use 'contact';
+@use 'floating-chat';
+
+*{
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+}

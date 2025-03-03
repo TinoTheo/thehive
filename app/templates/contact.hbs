@@ -1,0 +1,120 @@
+
+{{! app/templates/contact.hbs }}
+<section class="contact-page">
+  {{! Hero Section }}
+  <div class="contact-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Connect With Us</h1>
+      <p class="hero-subtitle">Your Health Journey Starts Here</p>
+    </div>
+  </div>
+
+  {{! Contact Grid }}
+  <div class="contact-grid">
+    {{! Contact Methods }}
+    <div class="contact-methods">
+      <div class="contact-card">
+        <div class="card-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Visit Our Clinic</h3>
+          <p class="card-text">{{this.location.address}}</p>
+          <p class="card-text">{{this.location.city}}, {{this.location.state}} {{this.location.zip}}</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Call Us</h3>
+          <p class="card-text">{{this.contact.phone}}</p>
+          <p class="card-text">Emergency: {{this.contact.emergency}}</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Hours</h3>
+          {{#each this.hours as |hour|}}
+            <p class="card-text">
+              <span class="day">{{hour.day}}:</span>
+              <span class="time">{{hour.time}}</span>
+            </p>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+    {{! Contact Form }}
+    <form class="contact-form" {{on "submit" this.handleSubmit}}>
+      <div class="form-group dual-input">
+        <input 
+          type="text" 
+          name="name" 
+          placeholder="Full Name" 
+          aria-label="Full Name"
+          required
+        >
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Email Address" 
+          aria-label="Email Address"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="tel" 
+          name="phone" 
+          placeholder="Phone Number" 
+          aria-label="Phone Number"
+          pattern="[0-9]{10}"
+        >
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="text" 
+          name="subject" 
+          placeholder="Subject" 
+          aria-label="Subject"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <textarea 
+          name="message" 
+          placeholder="Your Message" 
+          aria-label="Your Message"
+          rows="6"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">
+        Send Message
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+
+  {{! Map Section }}
+  <div class="map-container">
+    <iframe 
+      title="Clinic Location"
+      src={{this.mapEmbedUrl}}
+      class="map-iframe"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</section>

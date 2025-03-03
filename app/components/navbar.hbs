@@ -1,0 +1,49 @@
+<nav class="nav-container">
+  <div class="nav-content">
+    <div class="logo-container">
+      <LinkTo @route="index" class="logo">
+        <span class="hexagon"></span>
+        The Hive
+      </LinkTo>
+    </div>
+
+    <div class="desktop-menu">
+      {{#each this.menuItems as |item|}}
+        <LinkTo 
+  @route={{item.route}} 
+  class="nav-link {{if (eq this.currentRouteName item.route) 'active'}}"
+>
+          {{item.label}}
+        </LinkTo>
+      {{/each}}
+      <LinkTo @route="contact" class="cta-button">Book Appointment</LinkTo>
+    </div>
+
+    <button type="button" class="menu-toggle" {{on "click" this.toggleMenu}}>
+      {{#if this.isMenuOpen}}
+         <i class="fas fa-times"></i>
+      {{else}}
+        <i class="fas fa-bars"></i>
+      {{/if}}
+    </button>
+
+    {{#if this.isMenuOpen}}
+      <div class="mobile-menu">
+        <div class="mobile-menu-content">
+          {{#each this.menuItems as |item|}}
+            <LinkTo 
+              @route={{item.route}} 
+              class="nav-link"
+              {{on "click" this.toggleMenu}}
+            >
+              {{item.label}}
+            </LinkTo>
+          {{/each}}
+          <LinkTo @route="contact" class="cta-button" {{on "click" this.toggleMenu}}>
+            Book Appointment
+          </LinkTo>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</nav>

@@ -1,0 +1,12 @@
+<div class="services-grid">
+  {{#each @services as |service|}}
+    <ServicesCard 
+      @icon={{service.icon}}
+      @title={{service.title}}
+      @description={{service.description}}
+      @features={{service.features}}
+      @ctaText="Learn More"
+      @ctaLink={{service.link}}
+    />
+  {{/each}}
+</div>

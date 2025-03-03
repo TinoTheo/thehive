@@ -1,0 +1,68 @@
+{{! app/templates/services.hbs }}
+<section class="services-header">
+  {{! Background Layer }}
+  <div class="header-background">
+    <div class="geometric-overlay"></div>
+    <div class="image-overlay" style="background-image: url('/assets/images/services-bg.jpg');"></div>
+  </div>
+
+  {{! Content Layer }}
+  <div class="header-content">
+    <div class="trust-indicators">
+      <span class="trust-badge">JCAHO Accredited</span>
+      <span class="trust-badge">200+ Certified Specialists</span>
+    </div>
+    
+    <h1 class="header-title">
+      <span class="title-text">Advanced Medical Services</span>
+      <span class="title-underline"></span>
+    </h1>
+    
+    <p class="header-subtitle">Precision Care Through Innovation & Expertise</p>
+    
+    <div class="header-actions">
+      <LinkTo @route="contact" class="cta-primary">
+        Schedule Consultation
+        <span class="cta-icon">→</span>
+      </LinkTo>
+      <LinkTo @route="doctors" class="cta-secondary">
+        Meet Our Team
+      </LinkTo>
+    </div>
+  </div>
+</section>
+
+{{! Rest of services page content }}
+<section class="services-overview">
+  <div class="section-container">
+    <div class="services-intro">
+      <h2 class="intro-heading">Specialized Care Across All Disciplines</h2>
+      <p class="intro-text">
+        At The Hive, we offer a full spectrum of medical services, from primary care to advanced 
+        surgical procedures. Our integrated approach ensures continuity of care across all 
+        specialties.
+      </p>
+    </div>
+
+    <ServicesGrid @services={{this.services}} />
+  </div>
+</section>
+
+<section class="service-cta">
+  <div class="cta-container">
+    <h2 class="cta-heading">Can't Find What You're Looking For?</h2>
+    <p class="cta-text">
+      Our team is here to help. Contact us to discuss your specific healthcare needs.
+    </p>
+    <div class="cta-buttons">
+      <LinkTo @route="contact" class="cta-button primary">
+        Contact Us
+        <FaIcon @icon="comments" />
+      </LinkTo>
+      <LinkTo @route="doctors" class="cta-button secondary">
+        Meet Our Doctors
+        <FaIcon @icon="user-md" />
+      </LinkTo>
+    </div>
+  </div>
+</section>
