@@ -180,9 +180,12 @@ $mobile-breakpoint: 768px;
     }
   
     .chat-box {
-      width: 90vw;
-      max-width: 350px;
+      width: calc(100vw - 2rem); // Mobile-first approach
+      @media (min-width: 480px) {
+        width: 350px;
+      }
     }
+    
   
     .chat-button {
       width: 56px;
