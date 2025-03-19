@@ -19,9 +19,9 @@
       <LinkTo @route="contact" class="cta-button">Book Appointment</LinkTo>
     </div>
 
-    <button type="button" class="menu-toggle" {{on "click" this.toggleMenu}}>
+    <button type="button" class="menu-toggle" {{on "click" this.toggleMenu}} style="position: relative;">
       {{#if this.isMenuOpen}}
-         <i class="fas fa-times"></i>
+        <i class="fas fa-times"></i>
       {{else}}
         <i class="fas fa-bars"></i>
       {{/if}}

@@ -13,6 +13,8 @@ $mobile-breakpoint: 768px;
     color: rgba(white, 0.9);
     padding: 4rem 2rem 2rem;
     position: relative;
+    width: 100%;
+    
   
     &::before {
       content: '';
@@ -22,12 +24,15 @@ $mobile-breakpoint: 768px;
       right: 0;
       height: 100px;
       background: linear-gradient(to bottom right, transparent 49.5%, $primary-color 50%);
+      width: 100%;
     }
   }
   
   .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+
+
   }
   
   .footer-main {
@@ -37,6 +42,7 @@ $mobile-breakpoint: 768px;
   
     @media (min-width: $mobile-breakpoint) {
       grid-template-columns: 300px 1fr;
+      
     }
   }
   
@@ -183,12 +189,12 @@ $mobile-breakpoint: 768px;
   }
   
   .footer-bottom {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 1rem;
     text-align: center;
     padding-top: 2rem;
+    width: 100%;
+
   
     @media (min-width: $mobile-breakpoint) {
       flex-direction: row;
@@ -201,7 +207,7 @@ $mobile-breakpoint: 768px;
     }
   
     .legal-links {
-      display: flex;
+      display:block;
       gap: 1.5rem;
   
       a {
@@ -213,5 +219,6 @@ $mobile-breakpoint: 768px;
           color: $accent-color;
         }
       }
+
     }
   }
